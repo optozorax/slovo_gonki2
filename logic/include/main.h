@@ -1,5 +1,7 @@
 #pragma once
 
+#include <string>
+
 namespace logic
 {
 
@@ -15,15 +17,20 @@ class MainHandler
 public:
 	MainHandler();
 
+    void save();
+
 	void changeLanguage(void);
-	void loadNewWords(void);
+    void loadNewWords(const std::wstring& file);
 	void cancelMistake(void);
 
 	StateType getCurrentState(void) const;
 	std::wstring getCurrentQuestion(void) const;
-	std::wstring getCurrentAnswer(void) const;
+    bool answer(const std::wstring& str);
 
 	std::wstring getStatisticInformation(void) const;
+
+    int getTodayWorkTime(void) const;
+    int getAllWorkTime(void) const;
 };
 
 };
